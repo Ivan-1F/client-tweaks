@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "client-tweaks",
+  "version": "${version}",
+  "name": "Client Tweaks",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/client-tweaks/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "me.ivan1f.clienttweaks.ClientTweaks"
+    ]
+  },
+  "mixins": [
+    "client-tweaks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.1",
+    "minecraft": "1.15.2"
+  }
+}

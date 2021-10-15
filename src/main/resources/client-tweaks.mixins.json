@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.ivan1f.clienttweaks.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
