@@ -1,5 +1,7 @@
 {
-  "client_tweaks.name": "Client Tweaks",
-  "client_tweaks.category.tweaks": "Tweaks",
-  "client_tweaks.setting.tweaks.render_enchantment_book_trade": "Render Enchantment Book Trade"
+  "clientTweaks.name": "Client Tweaks",
+  "category.tweaks.name": "Tweaks",
+  "category.disables.name": "Disables",
+  "setting.tweaks.renderEnchantmentBookTrade": "Render Enchantment Book Trade",
+  "setting.disables.disableCommandBlockRendering": "Disable Command Block Rendering"
 }

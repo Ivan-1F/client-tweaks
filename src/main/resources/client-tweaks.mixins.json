@@ -4,6 +4,7 @@
   "package": "me.ivan1f.clienttweaks.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "disables.disableCommandBlockRendering.CommandBlockMixin",
     "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin"
   ],
   "client": [
