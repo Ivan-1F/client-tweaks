@@ -8,7 +8,6 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.client.util.math.Matrix4f;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -17,8 +16,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Matrix4f;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -60,7 +61,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity> extends 
         Text text = null;
         for (TradeOffer offer : villagerEntity.getOffers()) {
             ItemStack sellItem = offer.getSellItem();
-            Map<Enchantment, Integer> enchantment = EnchantmentHelper.getEnchantments(sellItem);
+            Map<Enchantment, Integer> enchantment = EnchantmentHelper.get(sellItem);
             for (Map.Entry<Enchantment, Integer> entry : enchantment.entrySet()) {
                 int level = entry.getValue();
                 int cost = offer.getOriginalFirstBuyItem().getCount();
@@ -80,10 +81,10 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity> extends 
                 }
                 price = new LiteralText(String.format("%d(%d-%d)", cost, minCost, maxCost)).formatted(color);
 
-                if (level == entry.getKey().getMaximumLevel()) {
-                    text = entry.getKey().getName(entry.getValue()).formatted(Formatting.GOLD);
+                if (level == entry.getKey().getMaxLevel()) {
+                    text = ((MutableText) entry.getKey().getName(entry.getValue())).formatted(Formatting.GOLD);
                 } else {
-                    text = entry.getKey().getName(entry.getValue()).formatted(Formatting.WHITE);
+                    text = ((MutableText) entry.getKey().getName(entry.getValue())).formatted(Formatting.WHITE);
                 }
             }
         }
@@ -92,19 +93,19 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity> extends 
             float f = livingEntity.getHeight() / 8 * 7;
             matrixStack.push();
             matrixStack.translate(0, f, 0);
-            matrixStack.multiply(this.renderManager.getRotation());
+            matrixStack.multiply(this.dispatcher.getRotation());
             matrixStack.scale(-0.018F, -0.018F, 0.018F);
             matrixStack.translate(0, 0, -33);
             Matrix4f lv = matrixStack.peek().getModel();
             float g = client.options.getTextBackgroundOpacity(0.25F);
             int k = (int) (g * 255.0F) << 24;
             TextRenderer lv2 = this.getFontRenderer();
-            float h = (float) (-lv2.getStringWidth(text.asFormattedString()) / 2);
-            lv2.draw(text.asFormattedString(), h, 0, 553648127, false, lv, vertexConsumerProvider, true, k, light);
-            lv2.draw(text.asFormattedString(), h, 0, -1, false, lv, vertexConsumerProvider, true, 0, light);
-            h = (float) (-lv2.getStringWidth(price.asFormattedString()) / 2);
-            lv2.draw(price.asFormattedString(), h, 11, 553648127, false, lv, vertexConsumerProvider, true, k, light);
-            lv2.draw(price.asFormattedString(), h, 11, -1, false, lv, vertexConsumerProvider, true, 0, light);
+            float h = (float) (-lv2.getWidth(text) / 2);
+            lv2.draw(text, h, 0, 553648127, false, lv, vertexConsumerProvider, true, k, light);
+            lv2.draw(text, h, 0, -1, false, lv, vertexConsumerProvider, true, 0, light);
+            h = (float) (-lv2.getWidth(price) / 2);
+            lv2.draw(price, h, 11, 553648127, false, lv, vertexConsumerProvider, true, k, light);
+            lv2.draw(price, h, 11, -1, false, lv, vertexConsumerProvider, true, 0, light);
             matrixStack.pop();
         }
     }

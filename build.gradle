@@ -16,7 +16,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation files("libs/quick-config-mc1.15.2-1.0.0.jar")
+    modImplementation files("libs/quick-config-mc1.16.5-1.0.0.jar")
 
     // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
     // You may need to force-disable transitiveness on them.

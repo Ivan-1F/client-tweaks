@@ -9,7 +9,7 @@ public class WorldUtils {
         IntegratedServer server = mc.getServer();
 
         if (mc.world != null && server != null) {
-            return server.getWorld(mc.world.dimension.getType());
+            return server.getWorld(mc.world.getRegistryKey());
         } else {
             return mc.world;
         }
