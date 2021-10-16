@@ -9,4 +9,7 @@ public class Tweaks {
     @Setting
     @WithHotkey
     public static boolean renderEnchantmentBookTrade = false;
+    @Setting
+    @WithHotkey
+    public static boolean renderItemRemoveCountDown = false;
 }
