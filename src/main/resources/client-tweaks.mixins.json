@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "disables.disableCommandBlockRendering.CommandBlockMixin",
-    "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin"
+    "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin",
+    "tweaks.renderItemRemoveCountDown.ItemEntityRendererMixin"
   ],
   "client": [
   ],
