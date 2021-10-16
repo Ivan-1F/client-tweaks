@@ -8,13 +8,12 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.ItemEntityRenderer;
-import net.minecraft.client.util.math.Matrix4f;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Matrix4f;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,8 +48,8 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
             return;
         }
 
-        int cd = 6000 - itemEntity.getAge();
-        Text countDown = new LiteralText(String.format("%d gt | %d s", cd, cd / 20));
+        int cd = 6000 - itemEntity.age;
+        LiteralText countDown = new LiteralText(String.format("%d gt | %d s", cd, cd / 20));
         if (cd <= 600) {
             countDown.formatted(Formatting.RED);    // 30s
         } else if (cd < 1200) {
@@ -64,16 +63,16 @@ public abstract class ItemEntityRendererMixin extends EntityRenderer<ItemEntity>
         float f = itemEntity.getHeight() + 0.5f;
         matrixStack.push();
         matrixStack.translate(0, f, 0);
-        matrixStack.multiply(this.renderManager.getRotation());
+        matrixStack.multiply(this.dispatcher.getRotation());
         matrixStack.scale(-0.018F, -0.018F, 0.018F);
         matrixStack.translate(0, 0, -33);
         Matrix4f lv = matrixStack.peek().getModel();
         float g = client.options.getTextBackgroundOpacity(0.25F);
         int k = (int) (g * 255.0F) << 24;
         TextRenderer lv2 = this.getFontRenderer();
-        float h = (float) (-lv2.getStringWidth(countDown.asFormattedString()) / 2);
-        lv2.draw(countDown.asFormattedString(), h, 0, 553648127, false, lv, vertexConsumerProvider, true, k, light);
-        lv2.draw(countDown.asFormattedString(), h, 0, -1, false, lv, vertexConsumerProvider, true, 0, light);
+        float h = (float) (-lv2.getWidth(countDown) / 2);
+        lv2.draw(countDown, h, 0, 553648127, false, lv, vertexConsumerProvider, true, k, light);
+        lv2.draw(countDown, h, 0, -1, false, lv, vertexConsumerProvider, true, 0, light);
         matrixStack.pop();
     }
 }
