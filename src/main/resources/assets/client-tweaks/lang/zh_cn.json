@@ -1,0 +1,8 @@
+{
+  "clientTweaks.name": "Client Tweaks",
+  "category.tweaks.name": "功能",
+  "category.disables.name": "禁用",
+  "setting.tweaks.renderEnchantmentBookTrade": "渲染附魔书交易",
+  "setting.tweaks.renderItemRemoveCountDown": "渲染物品移除倒计时",
+  "setting.disables.disableCommandBlockRendering": "禁用命令方块渲染"
+}
