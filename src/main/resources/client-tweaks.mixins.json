@@ -6,7 +6,8 @@
   "mixins": [
     "disables.disableCommandBlockRendering.CommandBlockMixin",
     "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin",
-    "tweaks.renderItemRemoveCountDown.ItemEntityRendererMixin"
+    "tweaks.renderItemRemoveCountDown.ItemEntityRendererMixin",
+    "tweaks.renderVillagerPathFinding.WorldRendererMixin"
   ],
   "client": [
   ],

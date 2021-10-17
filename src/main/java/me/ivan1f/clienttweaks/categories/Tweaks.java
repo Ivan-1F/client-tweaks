@@ -11,5 +11,11 @@ public class Tweaks {
     public static boolean renderEnchantmentBookTrade = false;
     @Setting
     @WithHotkey
+    public static boolean renderVillagerJobSite = false;
+    @Setting
+    @WithHotkey
+    public static boolean renderVillagerHome = false;
+    @Setting
+    @WithHotkey
     public static boolean renderItemRemoveCountDown = false;
 }
