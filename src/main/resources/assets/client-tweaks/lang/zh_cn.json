@@ -3,6 +3,8 @@
   "category.tweaks.name": "功能",
   "category.disables.name": "禁用",
   "setting.tweaks.renderEnchantmentBookTrade": "渲染附魔书交易",
+  "setting.tweaks.renderVillagerJobSite": "渲染村民工作站",
+  "setting.tweaks.renderVillagerHome": "渲染村民床",
   "setting.tweaks.renderItemRemoveCountDown": "渲染物品移除倒计时",
   "setting.disables.disableCommandBlockRendering": "禁用命令方块渲染"
 }
