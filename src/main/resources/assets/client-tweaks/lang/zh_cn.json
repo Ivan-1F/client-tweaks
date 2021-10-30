@@ -6,6 +6,7 @@
   "setting.tweaks.renderVillagerJobSite": "渲染村民工作站",
   "setting.tweaks.renderVillagerHome": "渲染村民床",
   "setting.tweaks.renderItemRemoveCountDown": "渲染物品移除倒计时",
+  "setting.tweaks.immediatelyRespawn": "立即重生",
   "setting.disables.disableCommandBlockRendering": "禁用命令方块渲染",
   "setting.disables.disableEndermanAngrySound": "禁用末影人生气音效"
 }
