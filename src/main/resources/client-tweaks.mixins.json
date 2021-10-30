@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "disables.disableCommandBlockRendering.CommandBlockMixin",
+    "disables.disableEndermanAngrySound.EndermanEntityMixin",
     "tweaks.renderEnchantmentBookTrade.LivingEntityRendererMixin",
     "tweaks.renderItemRemoveCountDown.ItemEntityRendererMixin",
     "tweaks.renderVillagerPathFinding.WorldRendererMixin"

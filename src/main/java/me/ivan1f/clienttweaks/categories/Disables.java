@@ -14,6 +14,9 @@ public class Disables {
     @Setting
     @WithHotkey
     public static boolean disableCommandBlockRendering = false;
+    @Setting
+    @WithHotkey
+    public static boolean disableEndermanAngrySound = false;
     @ChangeHandler(of = "disableCommandBlockRendering")
     public static Consumer<Boolean> disableCommandBlockRenderingChangeHandler = (value) -> {
         if (MinecraftClient.getInstance().worldRenderer != null) {
