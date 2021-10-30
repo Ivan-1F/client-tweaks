@@ -3,6 +3,10 @@
   "category.tweaks.name": "Tweaks",
   "category.disables.name": "Disables",
   "setting.tweaks.renderEnchantmentBookTrade": "Render Enchantment Book Trade",
+  "setting.tweaks.renderVillagerJobSite": "Render Villager Job Site",
+  "setting.tweaks.renderVillagerHome": "Render Villager Home",
   "setting.tweaks.renderItemRemoveCountDown": "Render Item Remove Count Down",
-  "setting.disables.disableCommandBlockRendering": "Disable Command Block Rendering"
+  "setting.tweaks.immediatelyRespawn": "Immediately Respawn",
+  "setting.disables.disableCommandBlockRendering": "Disable Command Block Rendering",
+  "setting.disables.disableEndermanAngrySound": "Disable Enderman Angry Sound"
 }
