@@ -5,7 +5,6 @@ import me.ivan1f.clienttweaks.categories.Tweaks;
 import me.ivan1f.clienttweaks.utils.WorldUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.Matrix4f;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.entity.Entity;
@@ -14,6 +13,7 @@ import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Matrix4f;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,7 +46,7 @@ public abstract class WorldRendererMixin {
         if (serverWorld == null) {
             return;
         }
-        for (Entity entity : serverWorld.getEntities(EntityType.VILLAGER, entity -> true)) {
+        for (Entity entity : serverWorld.getEntitiesByType(EntityType.VILLAGER, entity -> true)) {
             VillagerEntity villager = (VillagerEntity) entity;
             BlockPos homePos = null;
             if (villager.getBrain().getOptionalMemory(MemoryModuleType.HOME).isPresent()) {
