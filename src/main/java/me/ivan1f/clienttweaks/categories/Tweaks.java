@@ -11,19 +11,19 @@ import java.util.function.Consumer;
 @Category
 @SuppressWarnings("unused")
 public class Tweaks {
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean renderEnchantmentBookTrade = false;
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean renderVillagerJobSite = false;
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean renderVillagerHome = false;
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean renderItemRemoveCountDown = false;
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean immediatelyRespawn = false;
     @ChangeHandler(of = "immediatelyRespawn")
