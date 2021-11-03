@@ -11,10 +11,10 @@ import java.util.function.Consumer;
 @Category
 @SuppressWarnings("unused")
 public class Disables {
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean disableCommandBlockRendering = false;
-    @Setting
+    @Setting(comment = true)
     @WithHotkey
     public static boolean disableEndermanAngrySound = false;
     @ChangeHandler(of = "disableCommandBlockRendering")
